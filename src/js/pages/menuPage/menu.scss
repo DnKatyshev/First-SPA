@@ -1,0 +1,26 @@
+@import '/src/scss/base.scss';
+
+.menu{
+
+    &__card-list--second{
+        display: grid;
+        grid-template: 1fr 1fr/ repeat(3, 30%);
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+        margin-top: 30px;
+    }
+
+    @media(max-width: 1000px){
+        &__card-list--second{
+            grid-template: repeat(2, auto)/ repeat(2, 45%);
+            justify-content: center;
+        }
+    }
+    @media(max-width: 650px){
+        &__card-list--second{
+            grid-template: repeat(4, auto)/ repeat(1, 100%);
+        }
+    }
+
+}
