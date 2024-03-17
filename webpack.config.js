@@ -90,7 +90,7 @@ module.exports = {
 
   devServer: {
     static: { 
-      directory: path.join(__dirname, 'dist'), // почему мы смотрим за dist, а  не src
+      directory: path.join(__dirname, 'src'), 
     }, 
     port: 9000, 
     historyApiFallback: isDev, 
