@@ -2,7 +2,11 @@ const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin'); // чтобы Стили компилились в отдельный файл(по дефолту вставляются инлайново)
 const CopyPlugin = require("copy-webpack-plugin");
-const isDev = process.env.NODE_ENV === 'development';
+
+// В Node.js для ДОСТУПА к ПЕРЕМЕННЫМ ОКРУЖЕНИЯ используется Глобальный объект  .process  со свойством  .env  -  Он хранит в себе все переменные окружения
+// NODE_ENV - пременная окружения (enviroment variable). Обычно в них хранят шо-то секретное(пароли от API). 
+// *cross-env - пакет, чтобы такие переменные нормально задавались на всех ОС
+const isDev = process.env.NODE_ENV === 'development'; 
 
 module.exports = { 
 
@@ -90,7 +94,7 @@ module.exports = {
 
   devServer: {
     static: { 
-      directory: path.join(__dirname, 'src'), 
+      directory: path.join(__dirname, 'dist'), 
     }, 
     port: 9000, 
     historyApiFallback: isDev, 
