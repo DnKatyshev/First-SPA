@@ -1,4 +1,5 @@
 import '/src/js/pages/formPage/form.scss'
+import Inputmask from "inputmask"
 
 export function getInput(name, type, value){
 
@@ -16,10 +17,15 @@ export function getInput(name, type, value){
     formInput.name = name
     formLabel.textContent = value
 
-    // для input-mask
-    if(formInput.type = 'tel'){
-        formInput.id = 'input-phone'
+    // TYPE: tel  InputMask
+    if(formInput.type == 'tel'){
+        let im = new Inputmask('+7 (999) 999-99-99', {
+                showMaskOnHover: false
+            })
+        im.mask(formInput)
     }
+
+    // //------------------------------
 
     formLabelBlock.append(formInput, formLabel)
     formGroup.append(formLabelBlock)

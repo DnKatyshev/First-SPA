@@ -5,9 +5,8 @@ import {getRadioButtons} from '/src/js/components/formComponents/radioBtn.js'
 import {getCheckboxButtons} from '/src/js/components/formComponents/checkboxBtn.js'
 import {getSelectionOption} from '/src/js/components/formComponents/selection.js'
 
-import Inputmask from "inputmask"
 import {getFetch} from '/src/js/extra/fetch.js'
-//import Choices from 'choices.js'
+import Choices from 'choices.js'
 
 
 export function getFormPage(){
@@ -128,13 +127,6 @@ export function getFormPage(){
         top: 0,
         behavior: "instant"})
     
-    let formPhone = document.querySelectorAll('#input-phone')  // НЕ работает
-    formPhone.forEach((item) => {
-        let im = new Inputmask('+7 (999) 999-99-99', {
-            showMaskOnHover: false
-        })
-        im.mask(item)
-    })
     //-----------------------
 
 

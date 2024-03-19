@@ -53,7 +53,7 @@ export function getFetch(){
 
         if(validation.call(this)){
 
-            let response = await fetch('mailer.php', {
+            let response = await fetch('php/mailer.php', {
                 method: 'POST',
                 body: formData
             })
