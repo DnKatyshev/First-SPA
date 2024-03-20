@@ -6,7 +6,7 @@ import {getCheckboxButtons} from '/src/js/components/formComponents/checkboxBtn.
 import {getSelectionOption} from '/src/js/components/formComponents/selection.js'
 
 import {getFetch} from '/src/js/extra/fetch.js'
-import Choices from 'choices.js'
+//import Choices from 'choices.js'
 
 
 export function getFormPage(){
@@ -78,6 +78,7 @@ export function getFormPage(){
     // SELECTION + OPTION's  - через библ. Choices.js
     let select = document.createElement('select')
     select.classList.add('select', 'js-choice')
+    select.name = 'district'
 
     // делаем placeholder 
     let optionPlaceholder = document.createElement('option')
