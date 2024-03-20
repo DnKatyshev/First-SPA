@@ -1,7 +1,7 @@
-// import '/src/phpMailer/mailer.php'   -  почему при импорте ошибка?
 
+export async function getFetch(e){
 
-export function getFetch(){
+    e.preventDefault()
 
 
     function validation() { 
@@ -29,7 +29,7 @@ export function getFetch(){
 
         let result = true
 
-        let formInputs = this.querySelectorAll('.form__input')
+        let formInputs = document.querySelectorAll('.form__input')
         formInputs.forEach(input => {
 
             removeError(input)
@@ -45,9 +45,6 @@ export function getFetch(){
 
     
     // функция для отправки на ПОЧТУ
-    async function postSend(e) {
-
-        e.preventDefault()
 
         let formData = new FormData(this)
 
@@ -69,13 +66,5 @@ export function getFetch(){
 
         }
 
-    } 
-
-
-
-    let allForms = document.querySelectorAll('form')
-    allForms.forEach((form) => {
-        form.addEventListener('submit', postSend);
-    })
 
 }

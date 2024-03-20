@@ -6,7 +6,8 @@ import {getCheckboxButtons} from '/src/js/components/formComponents/checkboxBtn.
 import {getSelectionOption} from '/src/js/components/formComponents/selection.js'
 
 import {getFetch} from '/src/js/extra/fetch.js'
-//import Choices from 'choices.js'
+import Choices from 'choices.js'
+import 'choices.js/public/assets/styles/choices.min.css'
 
 
 export function getFormPage(){
@@ -101,25 +102,24 @@ export function getFormPage(){
         select.append(getOptions[v])
     }
 
-    // let choices = new Choices(select, {
-    //     searchEnabled: false,
-    // })
-
 
     // Кнопка отправки
     let formBtn = document.createElement('button')
     formBtn.type = 'submit'
     formBtn.classList.add('send-button')
     formBtn.textContent = 'Отправить'
-    formBtn.addEventListener('click', (e) => {
-        e.preventDefault()
-        getFetch()
-    }) 
-
-
     
 
     form.append(title, formMain, radio, checkbox, select, formBtn)
+
+
+        let choices = new Choices(select, {
+        searchEnabled: false,
+    })
+
+
+    form.addEventListener('submit', getFetch)
+
 
 
 

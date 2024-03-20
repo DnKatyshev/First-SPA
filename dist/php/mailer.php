@@ -1,12 +1,12 @@
 <?php
 // Файлы phpmailer
-require 'PHPMailer.php';
-require 'SMTP.php';
-require 'Exception.php';
+require 'php/PHPMailer.php';
+require 'php/SMTP.php';
+require 'php/Exception.php';
 
 $title = "Тема письма";
 $file = $_FILES['file'];
-
+ 
 $c = true;
 // Формирование самого письма
 $title = "Заголовок письма";
@@ -29,7 +29,7 @@ $mail = new PHPMailer\PHPMailer\PHPMailer();
 try {
   $mail->isSMTP();
   $mail->CharSet = "UTF-8";
-  $mail->SMTPAuth   = true;
+  $mail->SMTPAuth   = true; 
 
   // Настройки вашей почты
   $mail->Host       = 'smtp.gmail.com'; // SMTP сервера вашей почты
