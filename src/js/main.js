@@ -18,30 +18,30 @@ const footer = getFooter()
 const mainTag = createMainTag()
 
 
-router.on('/Домашняя', async () => {
+router.on('/Home', async () => {
     mainTag.sectionContainer.innerHTML = ''
     mainTag.sectionContainer.append(getHomePage())
 })
-router.on('/Меню', async () => {
+router.on('/Menu', async () => {
     mainTag.sectionContainer.innerHTML = ''
     const menuPageModule = await import('/src/js/pages/menuPage/menu.js')
     mainTag.sectionContainer.append(menuPageModule.getMenuPage())
 })
-router.on('/Кухня', async () => {
+router.on('/Kitchen', async () => {
     mainTag.sectionContainer.innerHTML = ''
     const cookingPageModule = await import('/src/js/pages/cookingPage/cooking.js')
     mainTag.sectionContainer.append(cookingPageModule.getCookingPage())
 })
-router.on('/Услуги', async () => {
+router.on('/Services', async () => {
     mainTag.sectionContainer.innerHTML = ''
     const servicesPageModule = await import('/src/js/pages/servicesPage/services.js')
     mainTag.sectionContainer.append(servicesPageModule.getServicesPage())
 })
 
-router.on('/Форма_заказа', async () => {
+router.on('/Form', async () => { 
     mainTag.sectionContainer.innerHTML = ''
     const formPageModule = await import('/src/js/pages/formPage/form.js')
-    mainTag.sectionContainer.append(formPageModule.getFormPage())
+    mainTag.sectionContainer.append(formPageModule.getFormPage().form)
 })
 
 mainTag.sectionContainer.append(getHomePage()) // подгружаем изначально, это домашняя стр

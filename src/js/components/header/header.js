@@ -7,7 +7,7 @@ import {getNavLink} from '/src/js/components/getNavLink/getNavLink.js'
 
 export function getHeader(){
 
-    let logo = getLogo('/Домашняя')
+    let logo = getLogo('/Home')
     let btn = getSectionBtn('Связаться')
     btn.classList.add('header__btn')
 
@@ -28,9 +28,9 @@ export function getHeader(){
     headerList.classList.add('header__list')
 
    const navigateLinks = {
-        "menu": getNavLink('/Меню', 'Меню'),
-        "cuisine": getNavLink('/Кухня', 'Кухня'),
-        "services": getNavLink('/Услуги', 'Услуги'),
+        "menu": getNavLink('/Menu', 'Меню'),
+        "cuisine": getNavLink('/Kitchen', 'Кухня'),
+        "services": getNavLink('/Services', 'Услуги'),
    }
 
    for(let i in navigateLinks){

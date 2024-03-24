@@ -9,7 +9,7 @@ import youtubeIcon from '/src/images/footer/youtube.svg'
 
 export function getFooter(){
 
-    let logo = getLogo('/Домашняя')
+    let logo = getLogo('/Home')
     
 
     let footer = document.createElement('footer')

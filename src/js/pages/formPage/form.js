@@ -6,6 +6,7 @@ import {getCheckboxButtons} from '/src/js/components/formComponents/checkboxBtn.
 import {getSelectionOption} from '/src/js/components/formComponents/selection.js'
 
 import {getFetch} from '/src/js/extra/fetch.js'
+import {setLocalStorage, clearStorage} from '/src/js/components/localStorage/getLocalStorage'
 import Choices from 'choices.js'
 import 'choices.js/public/assets/styles/choices.min.css'
 
@@ -108,29 +109,47 @@ export function getFormPage(){
     formBtn.type = 'submit'
     formBtn.classList.add('send-button')
     formBtn.textContent = 'Отправить'
+    formBtn.addEventListener('click', () => localStorage.clear())
     
 
     form.append(title, formMain, radio, checkbox, select, formBtn)
 
 
-        let choices = new Choices(select, {
-        searchEnabled: false,
+    //     let choices = new Choices(select, {
+    //     searchEnabled: false,
+    // })
+
+
+    let formElements = Array.from(form.elements)
+    formElements.forEach(element => {
+        element.addEventListener('change', setLocalStorage)
     })
+    function startWidthLocalStorage(){
+        for(let i = 0; i < formElements.length; i++){
+            if(formElements[i].type != 'checkbox' && formElements[i].type != 'radio'){
+                formElements[i].value = localStorage.getItem(formElements[i].name)
+            }
+            else{
+                formElements[i].checked = localStorage.getItem(formElements[i].id)
+            }
+        }
+    }
+    
+    
+
+    form.addEventListener('submit', getFetch, clearStorage)
 
 
-    form.addEventListener('submit', getFetch)
-
-
-
-
+    
     // ---- extra settings ----
     window.scrollTo({  
         top: 0,
         behavior: "instant"})
-    
+        
+    startWidthLocalStorage()
     //-----------------------
 
 
-    return form
+    return {form, formElements}
 
 }

@@ -17,7 +17,7 @@ export function getCard2(img, title, descr){
 
     btn.addEventListener("click", function (event) {
         event.preventDefault()
-        router.navigate('/Форма_заказа');
+        router.navigate('/Form');
       })
 
     card_2_Img.src = img
